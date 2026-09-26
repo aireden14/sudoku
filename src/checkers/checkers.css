@@ -1,0 +1,185 @@
+
+/* ===== Шашки (из GamePass) ===== */
+.local-turn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--apple-text);
+  min-height: 24px;
+}
+
+.local-turn-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  flex: 0 0 auto;
+}
+
+.local-turn-dot.white {
+  background: #ffffff;
+}
+
+.local-turn-dot.black {
+  background: var(--accent-gold);
+}
+
+/* ===== Checkers ===== */
+.checkers-mode-card {
+  gap: 12px;
+}
+
+.checkers-mode-segment {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.checkers-level-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.checkers-level {
+  min-height: 58px;
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  background: var(--glass-solid);
+  color: var(--apple-text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  cursor: pointer;
+}
+
+.checkers-level strong {
+  font-size: 17px;
+  line-height: 1;
+}
+
+.checkers-level span {
+  font-size: 9px;
+  font-weight: 800;
+  color: var(--apple-text-faint);
+  line-height: 1;
+}
+
+.checkers-level.active {
+  border-color: color-mix(in srgb, var(--accent-gold) 72%, var(--glass-border));
+  background: color-mix(in srgb, var(--accent-gold) 22%, var(--glass-solid));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.checkers-online {
+  display: grid;
+  gap: 10px;
+}
+
+.checkers-online-actions {
+  display: grid;
+  grid-template-columns: minmax(96px, auto) 1fr minmax(76px, auto);
+  gap: 8px;
+  align-items: center;
+}
+
+.checkers-online-code {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-solid);
+  color: var(--apple-text-dim);
+  font-size: 13px;
+}
+
+.checkers-online-code strong {
+  color: var(--apple-text);
+  letter-spacing: 0.08em;
+}
+
+.checkers-board {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.checkers-cell {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.checkers-cell.light {
+  background: var(--board-light);
+}
+
+.checkers-cell.dark {
+  background: var(--board-dark);
+  cursor: pointer;
+}
+
+.checkers-cell.selected {
+  box-shadow: inset 0 0 0 3px var(--move-selected-border);
+}
+
+.checkers-cell.target.dark {
+  background: color-mix(in srgb, var(--accent-gold) 26%, var(--board-dark));
+}
+
+.checkers-piece {
+  width: 76%;
+  height: 76%;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: clamp(11px, 3.4vw, 19px);
+  line-height: 1;
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.28);
+}
+
+.checkers-piece.w {
+  background: radial-gradient(circle at 35% 30%, #ffffff, #c8c8d0);
+  color: #8a6d1a;
+  border: 2px solid rgba(10, 10, 26, 0.18);
+}
+
+.checkers-piece.b {
+  background: radial-gradient(circle at 35% 30%, var(--palette-gold-glow), var(--palette-gold-epic));
+  color: #5a4500;
+  border: 2px solid rgba(10, 10, 26, 0.35);
+}
+
+.checkers-piece.king {
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.46),
+    inset 0 0 0 3px rgba(255, 255, 255, 0.55);
+}
+
+.checkers-dot {
+  width: 26%;
+  height: 26%;
+  border-radius: 50%;
+  background: var(--move-dot);
+}
+
+.checkers-counts {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 6px;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--apple-text-dim);
+}

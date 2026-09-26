@@ -153,3 +153,45 @@ button {
   .sudoku-number-grid[data-size="9"] { grid-template-columns: repeat(3, 1fr); }
   .sudoku-number-grid:not([data-size="9"]) { grid-template-columns: repeat(4, 1fr); }
 }
+
+/* ===== Переключатель игр в шапке ===== */
+.game-switch {
+  margin-left: auto;
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-switch button {
+  border: 0;
+  background: transparent;
+  color: var(--apple-text-dim);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 7px 12px;
+  border-radius: 9px;
+}
+
+.game-switch button.active {
+  background: rgba(255, 255, 255, 0.16);
+  color: var(--apple-text);
+}
+
+.app-screen.checkers-screen {
+  padding-top: calc(var(--safe-top) + 14px);
+  padding-left: max(18px, env(safe-area-inset-left, 0px));
+  padding-right: max(18px, env(safe-area-inset-right, 0px));
+  padding-bottom: calc(var(--safe-bottom) + 16px);
+  gap: 14px;
+}
+
+.checkers-screen .checkers-mode-card { margin: 0; }
+.checkers-screen .seg-item { font-family: inherit; }
+
+/* На айпаде доска крупнее, но целиком влезает по высоте. */
+@media (min-width: 700px) {
+  .app-screen.checkers-screen { max-width: min(640px, calc(100dvh - 330px)); min-width: 440px; }
+}

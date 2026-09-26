@@ -25,7 +25,7 @@ interface Toast {
   text: string;
 }
 
-export function SudokuScreen() {
+export function SudokuScreen({ switcher }: { switcher?: React.ReactNode }) {
   const {
     puzzle,
     entries,
@@ -175,6 +175,7 @@ export function SudokuScreen() {
       <header className="sudoku-brand">
         <Logo />
         <h1>Судоку</h1>
+        {switcher}
       </header>
 
       <div className="sudoku-toolbar">
